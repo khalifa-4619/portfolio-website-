@@ -1,0 +1,114 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  background: #ffffff;
+  color: #1e3a8a;
+}
+h1, h2, h3, h4 {
+  color: #1e3a8a;
+}
+a {
+  color: #38bdf8;
+  text-decoration: none;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem 0;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(to right, #1e3a8a, #38bdf8);
+  color: white;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+.hero .btn {
+  background: white;
+  color: #1e3a8a;
+  padding: 0.75rem 1.5rem;
+  display: inline-block;
+  margin-top: 1rem;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* Features */
+.features h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.feature-grid {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.feature {
+  flex: 1 1 30%;
+  text-align: center;
+}
+.feature img {
+  max-width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Gallery */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.gallery-item p {
+  margin-top: 0.5rem;
+  color: #333;
+}
+
+/* FAQ */
+.faq h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.faq-item {
+  margin-bottom: 1.5rem;
+}
+.faq-item h4 {
+  margin-bottom: 0.5rem;
+}
+
+/* Contact */
+.contact h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.contact p {
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+/* Footer */
+footer {
+  background: #1e3a8a;
+  color: white;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 3rem;
+}#

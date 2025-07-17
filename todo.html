@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>To-Do List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 200px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px;
+      font-size: 14px;
+      margin-left: 5px;
+      cursor: pointer;
+    }
+
+    .task {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f0f0f0;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .task span {
+      flex-grow: 1;
+      font-size: 18px;
+    }
+
+    .completed {
+      text-decoration: line-through;
+      color: green;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>To-Do List</h1>
+
+  <input type="text" id="taskInput" placeholder="Enter a task">
+  <button onclick="addTask()">Add Task</button>
+
+  <div id="taskList"></div>
+
+  <script>
+    function addTask() {
+      const taskInput = document.getElementById("taskInput");
+      const taskText = taskInput.value.trim();
+
+      if (taskText === "") {
+        alert("Please enter a task.");
+        return;
+      }
+
+      const taskList = document.getElementById("taskList");
+
+      // Create task container
+      const taskDiv = document.createElement("div");
+      taskDiv.className = "task";
+
+      // Task text
+      const taskSpan = document.createElement("span");
+      taskSpan.textContent = taskText;
+
+      // Buttons
+      const btnGroup = document.createElement("div");
+      btnGroup.className = "btn-group";
+
+      const completeBtn = document.createElement("button");
+      completeBtn.textContent = "Complete";
+      completeBtn.onclick = () => {
+        taskSpan.classList.toggle("completed");
+      };
+
+      const removeBtn = document.createElement("button");
+      removeBtn.textContent = "Remove";
+      removeBtn.onclick = () => {
+        taskList.removeChild(taskDiv);
+      };
+
+      btnGroup.appendChild(completeBtn);
+      btnGroup.appendChild(removeBtn);
+
+      taskDiv.appendChild(taskSpan);
+      taskDiv.appendChild(btnGroup);
+
+      taskList.appendChild(taskDiv);
+      taskInput.value = "";
+    }
+  </script>
+
+</body>
+</html>

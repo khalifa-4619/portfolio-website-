@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>🔥 Custom Counter</title>
+  <style>
+    :root {
+      --light-bg: linear-gradient(to right, #e3f2fd, #ffffff);
+      --light-text: #111;
+      --dark-bg: linear-gradient(to right, #121212, #1e1e1e);
+      --dark-text: #f5f5f5;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--light-bg);
+      color: var(--light-text);
+      text-align: center;
+      padding: 40px 20px;
+      transition: background 0.5s, color 0.3s;
+      min-height: 100vh;
+    }
+
+    .dark-mode {
+      background: var(--dark-bg);
+      color: var(--dark-text);
+    }
+
+    h1 {
+      font-size: 26px;
+      margin-bottom: 30px;
+    }
+
+    #countDisplay {
+      font-size: 70px;
+      font-weight: bold;
+      margin: 20px 0;
+      transition: transform 0.2s ease;
+    }
+
+    input[type="number"] {
+      width: 70px;
+      padding: 10px;
+      font-size: 16px;
+      margin: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 10px 16px;
+      font-size: 16px;
+      margin: 8px 5px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: transform 0.2s ease, background-color 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    .add-btn {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .subtract-btn {
+      background-color: #e53935;
+      color: white;
+    }
+
+    .reset-btn {
+      background-color: #fbc02d;
+      color: black;
+    }
+
+    .toggle-btn {
+      background-color: #2196F3;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🔥 Custom Counter with Dark Mode</h1>
+
+  <div id="countDisplay">0</div>
+
+  <input type="number" id="stepInput" value="1" min="1" />
+
+  <br>
+
+  <button class="add-btn" onclick="updateCount('add')">Add</button>
+  <button class="subtract-btn" onclick="updateCount('subtract')">Subtract</button>
+  <br>
+  <button class="reset-btn" onclick="resetCount()">Reset</button>
+  <button class="toggle-btn" onclick="toggleMode()">Toggle Dark Mode</button>
+
+  <script>
+    let count = 0;
+
+    function updateCount(action) {
+      const step = parseInt(document.getElementById("stepInput").value) || 1;
+      const display = document.getElementById("countDisplay");
+
+      if (action === 'add') {
+        count += step;
+      } else if (action === 'subtract') {
+        count -= step;
+      }
+
+      display.textContent = count;
+      display.style.transform = "scale(1.2)";
+      setTimeout(() => {
+        display.style.transform = "scale(1)";
+      }, 150);
+    }
+
+    function resetCount() {
+      count = 0;
+      document.getElementById("countDisplay").textContent = count;
+    }
+
+    function toggleMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
+
+</body>
+</html>

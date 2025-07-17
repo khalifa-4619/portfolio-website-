@@ -1,0 +1,499 @@
+body{
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background 0.3s, color 0.3s;
+}
+.btnn {
+    display: none;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #4b3621;
+    color: white;
+}
+.logo {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #4b3621;
+    background: #c7bdb3;
+    padding: 0.3rem 0.6rem;
+    border-radius: 50%;
+    text-align: center;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: pulse 3s ease-in-out infinite;
+}
+/* ---------Animations Creation-----------*/
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ------------ */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+}
+nav a {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: white;
+}
+/* active page */
+nav a.active-link {
+  border: 2px solid #F5A623;
+  padding: 5px;
+}
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+}
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+.intro {
+  animation: slideIn 1.5s ease-out forwards;
+}
+/* ---------Animations Creation-----------*/
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ------------------ */
+
+.light-theme {
+  background-color: #c7bdb3;
+  color: #1a1a1a;
+}
+.btn {
+    background-color: #ffffff;
+    color: #4b3621;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+.btn:hover {
+  background-color: #d48b1a;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(245, 166, 35, 0.4);
+  animation: bounce 0.4s ease;
+}
+/* ---------Animations Creation-----------*/
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+/* ------------ */
+
+footer{
+    text-align: center;
+    background-color: #4b3621;
+    padding: 1rem;
+    color: white;
+}
+#theme-toggle {
+   font-size: 1.5rem;
+   margin: 0 10px;
+   cursor: pointer;
+}
+/* -----------End of Header, Footer, and Home page styles-------------- */
+
+.page-content {
+    padding: 2rem;
+}
+
+/*--------- End of about page------------ */
+
+.project {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+/* -----------Contact Page------------- */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    padding-left: 1rem;
+}
+form input, form textarea {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+form button {
+  padding: 0.75rem;
+  background-color: #ffffff;
+  color: #4b3621;
+  border: none;
+}
+
+.page-content li a{
+    text-decoration: none;
+    color: #1a1a1a;
+}
+/*social media icons*/
+.social-section {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.social-section h3 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.social-icons a {
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 1.5rem;
+  color: #4b3621;
+  background-color: #ffffff;
+  padding: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background 0.3s, transform 0.3s;
+
+  animation: iconPulse 3s ease-in-out infinite;
+}
+/* ---------Animations Creation-----------*/
+@keyframes iconPulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+/* -------------- */
+.social-icons a:hover {
+  background-color: #F5A623;
+  transform: scale(1.1);
+}
+
+
+
+/* -----------Projects Page------------- */
+.project-item {
+    margin-bottom: 2rem;
+}
+.project-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+     box-shadow: 7px 7px 6px rgba(0,0,0,0.4); 
+}
+.project-text {
+  flex: 2;
+}
+.project-image {
+  flex: 1;
+  text-align: right;
+}
+
+.project-image img {
+  max-width: 100px;
+  height: 5em;
+  margin-left: 50px;
+}
+#project-heading{
+    text-align: center;
+    font-weight: bold;
+}
+
+/* -------------Skills Page--------------- */
+
+.block {
+    padding: 2rem;
+    text-align: center;
+}
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+.skill-card {
+  background-color: #654321;
+  color: white;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 220px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+  opacity: 0; /* Initially hidden */
+  animation: fadeInUp 0.6s ease forwards;
+}
+/* --------Animation Creation------------- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* -------------------- */
+/* -------Staggered Delay-------- */
+.skill-card:nth-child(1) { animation-delay: 0s; }
+.skill-card:nth-child(2) { animation-delay: 0.5s; }
+.skill-card:nth-child(3) { animation-delay: 1s; }
+.skill-card:nth-child(4) { animation-delay: 1.5s; }
+.skill-card:nth-child(5) { animation-delay: 2s; }
+.skill-card:nth-child(6) { animation-delay: 2.5s; }
+.skill-card:nth-child(7) { animation-delay: 3s; }
+.skill-card:nth-child(8) { animation-delay: 3.5s; }
+.skill-card:nth-child(9) { animation-delay: 4s; }
+.skill-card:nth-child(10) { animation-delay: 4.5s; }
+.skill-card:nth-child(11) { animation-delay: 5s; }
+.skill-card:hover {
+  transform: translateY(-5px);
+}
+.hire-me {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background-color: #654321;
+  color: white;
+  border-radius: 8px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.hire-me h2 {
+  margin-bottom: 0.5rem;
+}
+
+.hire-me .btn {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: #ffffff;
+  color: #4b3621;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.hire-me .btn:hover {
+  background-color: #d48b1a;
+}
+
+
+
+/*-------------------------------------------------------- Dark Theme General ------------ -----------------------------------------*/
+.dark-theme {
+  background-color: #4b3621;
+  color: #F9FAFB;
+}
+
+/* Header & Footer Custom Colors in Dark Mode */
+.dark-theme header,
+.dark-theme footer {
+  background-color: #c7bdb3;
+  color: #4b3621;
+}
+
+/* Also make nav links and logo match the text color */
+.dark-theme nav a,
+.dark-theme .logo {
+  color: #4b3621;
+}
+
+.dark-theme .logo {
+    background-color: #4b3621;
+    color: #c7bdb3;
+}
+#theme-toggle {
+  background-color: #ffffff;
+  color: #4b3621;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin: 0.5rem;
+}
+
+#theme-toggle:hover {
+  background-color: #d48b1a;
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(245, 166, 35, 0.4);
+}
+.dark-theme .page-content ul li p a {
+    color: white;
+}
+
+#scrollToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  ...
+}
+
+
+/* ----------Dealing With Mobile View Heterogeneity------------------------------*/
+
+
+@media (max-width: 768px) {
+  /* Make header stack on small screens */
+  header {
+    flex-direction: row;
+    text-align: center;
+    gap: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* stay above everything */
+}
+   
+  /* Navigation menu becomes vertical and centered */
+  nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  nav a {
+    display: inline-block;
+    padding: 0.5rem;
+  }
+
+  /* Logo spacing on small screens */
+  .logo {
+    margin-bottom: 0.5rem;
+  }
+
+  /* Make social icons wrap and center nicely */
+  .social-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .social-icons a {
+    margin: 0.3rem;
+    font-size: 1.3rem;
+    padding: 10px;
+  }
+
+  /* Stack skill cards vertically */
+  .skills-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .skill-card {
+    width: 90%;
+  }
+
+  /* Hire Me section adapts */
+  .hire-me {
+    width: 90%;
+    font-size: 0.95rem;
+  }
+
+  /* Shrink padding on small screens */
+  .page-content,
+  .block {
+    padding: 1rem;
+  }
+
+  footer {
+    font-size: 0.9rem;
+  }
+}
+/* Responsive Navigation */
+.menu-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  display: none;
+  cursor: pointer;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  #nav-menu {
+    overflow: hidden;
+    max-height: 0;
+    flex-direction: column;
+    align-items: center;
+    background-color: #4b3621;
+    width: 100%;
+    padding: 0;
+    gap: 0;
+    transition: max-height 0.4s ease;
+  }
+
+  #nav-menu.show {
+    max-height: 500px; /* adjust if needed */
+    padding: 1rem 0;
+    gap: 1rem;
+  }
+
+  nav a {
+    display: block;
+    padding: 0.5rem 0;
+  }
+  #nav-menu a {
+  color: white;
+  text-decoration: none;
+}
+.page-content,
+.hero,
+.block {
+  margin-top: 80px;
+  margin-buttom: 80px;
+}
+  #theme-toggle {
+    margin-right: 1rem; /* Adds space from the right edge */
+  }
+  form {
+      margin-left: 2rem;
+  }
+}

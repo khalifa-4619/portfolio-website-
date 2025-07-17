@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multimedia Showcase</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #fdfbfb, #ebedee);
+      color: #333;
+      padding: 20px;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    section {
+      margin: 40px auto;
+      max-width: 800px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 12px;
+      transition: opacity 1s ease-in-out;
+    }
+
+    iframe, video, audio {
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 10px;
+    }
+
+    button {
+      background-color: #4a90e2;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      margin: 10px 5px;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #357ab8;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #888;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- === Header === -->
+  <header>
+    <h1>🎨 Multimedia Showcase Site</h1>
+    <p style="text-align:center; font-size:1.1rem;">Explore the power of HTML5 multimedia elements</p>
+  </header>
+
+  <!-- === Local Audio Player Section === -->
+  <section>
+    <h2>🎶 Local Audio Player</h2>
+    <p>Listen to my audio file below🥰.</p>
+    <audio controls>
+      <source src="song.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+  </section>
+
+  <!-- === Audio Recorder Section === -->
+  <section>
+    <h2>🎤 Record & Play Your Voice</h2>
+    <p>Click "Record" to start recording and "Play" to listen to it.</p>
+    <div style="text-align:center;">
+      <button onclick="startRecording()">🔴 Record</button>
+      <button onclick="stopRecording()">⏹️ Stop</button>
+      <button onclick="playRecording()">▶️ Play</button>
+      <audio id="audioPlayback" controls style="display:none; margin-top: 10px;"></audio>
+    </div>
+  </section>
+
+  <!-- === Image Slideshow Gallery === -->
+  <section class="gallery">
+  <h2>🖼️ Auto-Changing Image Gallery</h2>
+  <img id="slideshow" src="https://picsum.photos/600/400?random=1" alt="Slideshow Image" />
+</section>
+
+  <!-- === Local Video Player Section === -->
+  <section>
+    <h2>📹 Local Video Player</h2>
+    <video controls >
+      <source src="myvid.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </section>
+
+  <!-- === Motivational YouTube Video Embed === -->
+  <section>
+    <h2>🌟 Watch & Get Inspired</h2>
+    <p>This embedded video will motivate and energize you to dream big.</p>
+    <iframe width="100%" height="400" src="https://www.youtube.com/embed/mgmVOuLgFB0" 
+      title="Motivational Video" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+  </section>
+
+  <!-- === Embedded Google Map Section === -->
+  <section>
+  <h2>📍 Find Us on the Map</h2>
+  <p>We're located at Rijiyar Lemo, Fagge LGA, Kano State, Nigeria:</p>
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127281.88274119834!2d8.451715!3d12.002179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x11ae8193de60d107%3A0xf7927c58d5a7a349!2sRijiyar%20Lemo%2C%20Kano!5e0!3m2!1sen!2sng!4v1720189764760!5m2!1sen!2sng" 
+    width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy">
+  </iframe>
+</section>
+
+  <!-- === Footer === -->
+  <div class="footer">
+    <p>Designed by Abdussamad Kamaladdin | Made with ❤️ & HTML5</p>
+  </div>
+
+  <!-- === JavaScript Section === -->
+  <script>
+    // 🌠 Auto Image Slideshow Script using Unsplash
+
+  const slideshow = document.getElementById('slideshow');
+
+  function changeImage() {
+    const randomNum = Math.floor(Math.random() * 1000); // Any random number
+    slideshow.src = `https://picsum.photos/600/400?random=${randomNum}`;
+  }
+
+  setInterval(changeImage, 3000); // Change image every 3 seconds
+
+    // 🎤 Audio Recording Script
+    let mediaRecorder;
+    let audioChunks = [];
+
+    function startRecording() {
+      navigator.mediaDevices.getUserMedia({ audio: true })
+        .then(stream => {
+          mediaRecorder = new MediaRecorder(stream);
+          mediaRecorder.start();
+          audioChunks = [];
+
+          mediaRecorder.ondataavailable = event => {
+            audioChunks.push(event.data);
+          };
+
+          mediaRecorder.onstop = () => {
+            const audioBlob = new Blob(audioChunks, { type: 'audio/mp3' });
+            const audioUrl = URL.createObjectURL(audioBlob);
+            const audio = document.getElementById('audioPlayback');
+            audio.src = audioUrl;
+            audio.style.display = 'block';
+          };
+
+          alert('Recording started...');
+        })
+        .catch(err => {
+          alert('Microphone access is required.');
+        });
+    }
+
+    function stopRecording() {
+      if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+        mediaRecorder.stop();
+        alert('Recording stopped!');
+      }
+    }
+
+    function playRecording() {
+      const audio = document.getElementById('audioPlayback');
+      if (audio.src) {
+        audio.play();
+      }
+    }
+  </script>
+</body>
+</html>
